@@ -19,7 +19,7 @@ class _SquarePerimeterCalculationScreenState extends State<SquarePerimeterCalcul
 
       setState(() {
         result = 'Perímetro: ${perimeter.toStringAsFixed(2)}, pois:\n\n'
-            'Perimetro do quadrado é a soma dos 4 lados: 4 * ${side} = ${perimeter.toStringAsFixed(2)}';
+            'Perimetro do quadrado é o produto dos 4 lados: 4 * ${side} = ${perimeter.toStringAsFixed(2)}';
       });
     }
   }
