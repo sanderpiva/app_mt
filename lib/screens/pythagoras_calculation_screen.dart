@@ -19,12 +19,15 @@ class _PythagorasCalculationScreenState extends State<PythagorasCalculationScree
       double catetoOposto = double.parse(_catetoOpostoController.text);
       double catetoAjacente = double.parse(_catetoAdjacenteController.text);
       double hypotenuse = sqrt(catetoOposto * catetoOposto + catetoAjacente * catetoAjacente);
+      double catetoOpostoQuadrado = catetoOposto * catetoOposto;
+      double catetoAdjacenteQuadrado = catetoAjacente * catetoAjacente;
 
       setState(() {
         result = 'Hipotenusa = \u221A(${ (catetoOposto * catetoOposto + catetoAjacente * catetoAjacente).toStringAsFixed(2)}) = ${hypotenuse.toStringAsFixed(2)}, pois:\n\n'
-            'Hipotenusa² = (cateto oposto)² + (cateto adjacente)² => \n'
+            'Hipotenusa² = (cateto oposto)² + (cateto adjacente)²\n'
             'Hipotenusa² = (${catetoOposto.toStringAsFixed(2)} * ${catetoOposto.toStringAsFixed(2)}) + (${catetoAjacente.toStringAsFixed(2)} * ${catetoAjacente.toStringAsFixed(2)})\n'
-            '= ${ (catetoOposto * catetoOposto + catetoAjacente * catetoAjacente).toStringAsFixed(2)}\n'
+            'Hipotenusa² = ${catetoOpostoQuadrado} + ${catetoAdjacenteQuadrado}\n'
+            'Hipotenusa² = ${ (catetoOposto * catetoOposto + catetoAjacente * catetoAjacente).toStringAsFixed(2)}\n'
             'Hipotenusa = \u221A(${ (catetoOposto * catetoOposto + catetoAjacente * catetoAjacente).toStringAsFixed(2)}) = ${hypotenuse.toStringAsFixed(2)}';
       });
     }
@@ -40,6 +43,11 @@ class _PythagorasCalculationScreenState extends State<PythagorasCalculationScree
           key: _formKey,
           child: Column(
             children: [
+              const Text(
+                'Teorema Pitágoras: relaciona os lados de um triângulo retângulo. Segundo Teorema, o quadrado da hipotensa é igual ao quadrado dos catetos. Realize um exercício prático:',
+                textAlign: TextAlign.justify,
+              ),
+              SizedBox(height: 26),
               TextFormField(
                 controller: _catetoOpostoController,
                 decoration: const InputDecoration(labelText: 'Cateto oposto'),

@@ -30,11 +30,12 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
 
       setState(() {
         result =
-        'O ${posicao}º termo da PA é ${resultado.toStringAsFixed(2)}: '
-            '${primeiroTermo} + (${posicao} - 1) * ${razao} = '
-            '${primeiroTermo} + ${resultadoPosicaoMenosUm} * ${razao} = '
-            '${primeiroTermo} + ${resutadoPosicaoMenosUmVezesRazao} = '
-            '${resultado.toStringAsFixed(2)}';
+        'O ${posicao}º termo da PA é ${resultado.toStringAsFixed(2)}:\n'
+            'an = a1 + (n - 1) * r\n'
+            'a${posicao} = ${primeiroTermo} + (${posicao} - 1) * ${razao}\n'
+            'a${posicao} = ${primeiroTermo} + ${resultadoPosicaoMenosUm} * ${razao}\n'
+            'a${posicao} = ${primeiroTermo} + ${resutadoPosicaoMenosUmVezesRazao}\n'
+            'a${posicao} = ${resultado.toStringAsFixed(2)}';
       });
     }
   }
@@ -49,6 +50,11 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
           key: _formKey,
           child: Column(
             children: [
+              const Text (
+                'Progressao Aritmética PA: Sequência numérica em que cada termo, a partir do segundo, é igual ao anterior somado com um número fixo, chamado razão ou r. Realize um exercício prático:',
+                textAlign: TextAlign.justify,
+              ),
+              SizedBox(height: 26),
               TextFormField(
                 controller: _primeiroTermoController,
                 decoration: const InputDecoration(labelText: 'Primeiro Termo (a1)'),

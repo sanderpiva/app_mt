@@ -34,6 +34,11 @@ class _SquarePerimeterCalculationScreenState extends State<SquarePerimeterCalcul
           key: _formKey,
           child: Column(
             children: [
+              const Text (
+                'Perímetro quadrado: Considerando que os lados (L) do quadrado são iguais, o perímetro do quadrado (P) pode ser obtido por meio de duas fórmulas, sendo: P = L + L + L + L ou P = 4 x L. Realize um exercício prático:',
+                textAlign: TextAlign.justify,
+              ),
+              SizedBox(height: 26),
               TextFormField(
                 controller: _sideController,
                 decoration: const InputDecoration(labelText: 'Lado do Quadrado'),

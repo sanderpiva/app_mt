@@ -25,17 +25,17 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
       double resultadoPosicaoMenosUm = (posicao - 1).toDouble();
       double resultadoPosicaoElevadoPosicaoMenosUm =
       pow(razao, resultadoPosicaoMenosUm).toDouble();
-      double resutadoPosicaoMenosUmVezesRazao = resultadoPosicaoMenosUm * razao;
 
       double resultado = primeiroTermo * pow(razao, (posicao - 1).toDouble());
 
       setState(() {
         result =
-        'O ${posicao}º termo da PG é ${resultado.toStringAsFixed(2)}: '
-            '${primeiroTermo} * (${razao}) ^ (${posicao} - 1) = '
-            '${primeiroTermo} * (${razao}) ^ (${resultadoPosicaoMenosUm}) = '
-            '${primeiroTermo} * ${resultadoPosicaoElevadoPosicaoMenosUm} = '
-            '${resultado.toStringAsFixed(2)}';
+        'O ${posicao}º termo da PG é ${resultado.toStringAsFixed(2)}:\n'
+            'an = a1 * q ^ (n - 1)\n'
+            'a${posicao} = ${primeiroTermo} * (${razao}) ^ (${posicao} - 1)\n'
+            'a${posicao} = ${primeiroTermo} * (${razao}) ^ (${resultadoPosicaoMenosUm})\n'
+            'a${posicao} = ${primeiroTermo} * ${resultadoPosicaoElevadoPosicaoMenosUm}\n'
+            'a${posicao} = ${resultado.toStringAsFixed(2)}';
       });
     }
   }
@@ -50,6 +50,11 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
           key: _formKey,
           child: Column(
             children: [
+              const Text (
+                'Progressao Geométrica PG: Sequência de numeros não nulos em que cada termo posterior, a partir do segundo, é igual ao anterior multiplicado por um número fixo: razão ou q. Realize um exercício prático:',
+                textAlign: TextAlign.justify,
+              ),
+              SizedBox(height: 26),
               TextFormField(
                 controller: _primeiroTermoController,
                 decoration: const InputDecoration(labelText: 'Primeiro Termo (a1)'),
