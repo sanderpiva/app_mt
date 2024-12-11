@@ -51,10 +51,10 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
           child: Column(
             children: [
               const Text (
-                'Proporção: Trata-se de uma igualdade entre razões. Duas razões são proporcionais quando o resultado da divisão entre o numerador e o denominador da primeira razão é igual ao resultado da divisão da segunda. Realize um exercíco prático:',
+                'Quando se divide o número de cima (numerador) pelo número de baixo (denominador) de duas frações diferentes, e os resultados dessas divisões são iguais, essas frações são proporcionais',
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 26),
+              SizedBox(height: 4),
               TextFormField(
                 controller: _aController,
                 decoration: const InputDecoration(labelText: 'Valor de a'),

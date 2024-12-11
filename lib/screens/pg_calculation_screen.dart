@@ -30,7 +30,6 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
 
       setState(() {
         result =
-        'O ${posicao}º termo da PG é ${resultado.toStringAsFixed(2)}:\n'
             'an = a1 * q ^ (n - 1)\n'
             'a${posicao} = ${primeiroTermo} * (${razao}) ^ (${posicao} - 1)\n'
             'a${posicao} = ${primeiroTermo} * (${razao}) ^ (${resultadoPosicaoMenosUm})\n'
@@ -51,10 +50,10 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
           child: Column(
             children: [
               const Text (
-                'Progressao Geométrica PG: Sequência de numeros não nulos em que cada termo posterior, a partir do segundo, é igual ao anterior multiplicado por um número fixo: razão ou q. Realize um exercício prático:',
+                'Sequência de numeros não nulos em que cada termo posterior, a partir do segundo, é igual ao anterior multiplicado por um número fixo q. Pratique:',
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 26),
+              SizedBox(height: 4),
               TextFormField(
                 controller: _primeiroTermoController,
                 decoration: const InputDecoration(labelText: 'Primeiro Termo (a1)'),

@@ -44,10 +44,10 @@ class _PythagorasCalculationScreenState extends State<PythagorasCalculationScree
           child: Column(
             children: [
               const Text(
-                'Teorema Pitágoras: relaciona os lados de um triângulo retângulo. Segundo Teorema, o quadrado da hipotensa é igual ao quadrado dos catetos. Realize um exercício prático:',
+                'Segundo Teorema, o quadrado da hipotensa é igual ao quadrado dos catetos. Pratique:',
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 26),
+              SizedBox(height: 4),
               TextFormField(
                 controller: _catetoOpostoController,
                 decoration: const InputDecoration(labelText: 'Cateto oposto'),
