@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 //Appbar estende da classe PreferredSizeWidget a qual precisa de um valor para a altura
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,6 +11,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return AppBar(
       backgroundColor: Colors.blue,
       iconTheme: const IconThemeData(

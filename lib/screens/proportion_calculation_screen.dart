@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ProportionCalculationScreen extends StatefulWidget {
   const ProportionCalculationScreen({Key? key}) : super(key: key);
@@ -30,18 +31,27 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
 
       // Calcula d usando a proporção a/b = c/d
       double d = (b * c) / a;
+      double resDenominador = c * b;
+      String resultadoProporcao = ' = ${d.toStringAsFixed(2)}';
 
       setState(() {
         result = 'A = $a    -     B = $b\n'
-                 'C = $c    -     D = ? \n\n'
-                 'D * A = C * B \n\n'
-                 'D = (C * B)/A = $d';
+                 'C = $c    -     D = ? \n'
+                 'D * A = C * B \n'
+                 'D = (C * B)/A\n'
+                 'D = (${c} * ${b})/${a}\n'
+                 'D = ${resDenominador}/${a}'
+                 '${resultadoProporcao}';
+
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(title: const Text('Cálculo de Proporções')),
       body: Padding(
@@ -82,12 +92,12 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
                   return null;
                 },
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: _validateAndCalculate,
                 child: const Text('Calcular Proporção'),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Text(result, style: const TextStyle(fontSize: 18)),
             ],
           ),

@@ -8,12 +8,16 @@ import 'pa_calculation_screen.dart';
 import 'pg_calculation_screen.dart';
 import 'proportion_calculation_screen.dart';
 import 'percentage_calculation_screen.dart';
+import 'package:flutter/services.dart';
 
 class CalculationPage extends StatelessWidget {
   const CalculationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: const MyAppBar(title: 'Escolha um Cálculo'),
       drawer: const MyDrawer(),

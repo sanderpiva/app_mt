@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SquarePerimeterCalculationScreen extends StatefulWidget {
   const SquarePerimeterCalculationScreen({Key? key}) : super(key: key);
@@ -26,6 +27,9 @@ class _SquarePerimeterCalculationScreenState extends State<SquarePerimeterCalcul
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(title: const Text('Perímetro do Quadrado')),
       body: Padding(

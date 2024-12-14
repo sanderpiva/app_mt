@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter/services.dart';
 
 class PGCalculationScreen extends StatefulWidget {
   const PGCalculationScreen({Key? key}) : super(key: key);
@@ -41,6 +42,9 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(title: const Text('Cálculo de PG')),
       body: Padding(

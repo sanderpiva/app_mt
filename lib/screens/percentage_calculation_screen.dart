@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class PercentageCalculationScreen extends StatefulWidget {
   const PercentageCalculationScreen({Key? key}) : super(key: key);
@@ -41,6 +42,9 @@ class _PercentageCalculationScreenState extends State<PercentageCalculationScree
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(title: const Text('Calculo da Porcentagem')),
       body: Padding(

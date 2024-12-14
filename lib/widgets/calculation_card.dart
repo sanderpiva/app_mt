@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CalculationCard extends StatelessWidget {
   final String title;
@@ -14,6 +15,9 @@ class CalculationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return GestureDetector(
       onTap: () {
         Navigator.push(

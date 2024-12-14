@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter/services.dart';
 
 class PACalculationScreen extends StatefulWidget {
   const PACalculationScreen({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
 
       setState(() {
         result =
-            'an = a1 + (n - 1) * r\n'
+        'an = a1 + (n - 1) * r\n'
             'a${posicao} = ${primeiroTermo} + (${posicao} - 1) * ${razao}\n'
             'a${posicao} = ${primeiroTermo} + ${resultadoPosicaoMenosUm} * ${razao}\n'
             'a${posicao} = ${primeiroTermo} + ${resutadoPosicaoMenosUmVezesRazao}\n'
@@ -41,6 +42,9 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(title: const Text('Cálculo de PA')),
       body: Padding(

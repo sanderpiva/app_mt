@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter/services.dart';
 
 class PythagorasCalculationScreen extends StatefulWidget {
   const PythagorasCalculationScreen({Key? key}) : super(key: key);
@@ -35,6 +36,9 @@ class _PythagorasCalculationScreenState extends State<PythagorasCalculationScree
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(title: const Text('Teorema de Pitágoras')),
       body: Padding(
