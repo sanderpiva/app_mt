@@ -18,24 +18,16 @@ class _PercentageCalculationScreenState extends State<PercentageCalculationScree
     if (_formKey.currentState!.validate()) {
       double value = double.parse(_valueController.text);
       double percentage = double.parse(_percentageController.text);
-      double percentagemDividido100 = percentage/100;
-      double umMenospercentagemDividido100 = 1 - percentagemDividido100;
       double calculatedPercentage = (value * percentage) / 100;
       double divisor = 100;
-      double res = percentage * value;
+      double calculateNumeratorResult = percentage * value;
 
       setState(() {
-        /*
-        result = '${percentage.toStringAsFixed(2)}% de ${value.toStringAsFixed(2)}' +
-            ' = ${calculatedPercentage.toStringAsFixed(2)}:\n'
-                '${value.toStringAsFixed(2)} * (1 - (${percentage} / 100) =' +
-            '\n${value.toStringAsFixed(2)} * ${umMenospercentagemDividido100} = '
-                '${calculatedPercentage.toStringAsFixed(2)}';*/
 
         result = '${percentage.toStringAsFixed(2)}% de ${value.toStringAsFixed(2)}' +
             ' = ${calculatedPercentage.toStringAsFixed(2)}:\n'
                 '(${percentage.toStringAsFixed(2)} * ${value.toStringAsFixed(2)})/ ${divisor} =' +
-            '\n${res} / $divisor = ${calculatedPercentage.toStringAsFixed(2)}';
+            '\n${calculateNumeratorResult} / $divisor = ${calculatedPercentage.toStringAsFixed(2)}';
       });
     }
   }

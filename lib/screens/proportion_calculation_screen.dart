@@ -20,8 +20,7 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
       double a = double.parse(_aController.text);
       double b = double.parse(_bController.text);
       double c = double.parse(_cController.text);
-
-      // Verifica se o denominador é diferente de zero para evitar divisão por zero
+      
       if (b == 0 || a == 0) {
         setState(() {
           result = 'Não é possível dividir por zero. Verifique os valores.';
@@ -29,10 +28,9 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
         return;
       }
 
-      // Calcula d usando a proporção a/b = c/d
       double d = (b * c) / a;
-      double resDenominador = c * b;
-      String resultadoProporcao = ' = ${d.toStringAsFixed(2)}';
+      double numeratorCalculationResult = c * b;
+      String proportionResult = ' = ${d.toStringAsFixed(2)}';
 
       setState(() {
         result = 'A = $a    -     B = $b\n'
@@ -40,8 +38,8 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
                  'D * A = C * B \n'
                  'D = (C * B)/A\n'
                  'D = (${c} * ${b})/${a}\n'
-                 'D = ${resDenominador}/${a}'
-                 '${resultadoProporcao}';
+                 'D = ${numeratorCalculationResult}/${a}'
+                 '${proportionResult}';
 
       });
     }
@@ -61,7 +59,7 @@ class _ProportionCalculationScreenState extends State<ProportionCalculationScree
           child: Column(
             children: [
               const Text (
-                'Quando se divide o número de cima (numerador) pelo número de baixo (denominador) de duas frações diferentes, e os resultados dessas divisões são iguais, essas frações são proporcionais',
+                'Quando se divide o número de cima (numerador) pelo número de baixo (denominador) de duas frações diferentes, e os resultados dessas divisões são iguais, essas frações são proporcionais. Pratique:',
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: 4),

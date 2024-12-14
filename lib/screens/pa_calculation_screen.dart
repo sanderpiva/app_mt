@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter/services.dart';
 
 class PACalculationScreen extends StatefulWidget {
@@ -11,31 +10,29 @@ class PACalculationScreen extends StatefulWidget {
 
 class _PACalculationScreenState extends State<PACalculationScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _primeiroTermoController = TextEditingController();
-  final _razaoController = TextEditingController();
-  final _posicaoController = TextEditingController();
+  final _firstTermController = TextEditingController();
+  final _reasonController = TextEditingController();
+  final _positionController = TextEditingController();
   String result = '';
 
   void _validateAndCalculate() {
     if (_formKey.currentState!.validate()) {
-      double primeiroTermo = double.parse(_primeiroTermoController.text);
-      double razao = double.parse(_razaoController.text);
-      int posicao = int.parse(_posicaoController.text);
-      // Variáveis intermediárias para a lógica
-      double resultadoPosicaoMenosUm = (posicao - 1).toDouble();
-      double resultadoPosicaoElevadoPosicaoMenosUm =
-      pow(razao, resultadoPosicaoMenosUm).toDouble();
-      double resutadoPosicaoMenosUmVezesRazao = resultadoPosicaoMenosUm * razao;
+      double firstTerm = double.parse(_firstTermController.text);
+      double reason = double.parse(_reasonController.text);
+      int position = int.parse(_positionController.text);
 
-      double resultado = primeiroTermo + (posicao - 1) * razao;
+      double positionMinusOneResult = (position - 1).toDouble();
+      double positionMinusOneResultTimesReason = positionMinusOneResult * reason;
+
+      double resultPAgeneralTerm = firstTerm + (position - 1) * reason;
 
       setState(() {
         result =
         'an = a1 + (n - 1) * r\n'
-            'a${posicao} = ${primeiroTermo} + (${posicao} - 1) * ${razao}\n'
-            'a${posicao} = ${primeiroTermo} + ${resultadoPosicaoMenosUm} * ${razao}\n'
-            'a${posicao} = ${primeiroTermo} + ${resutadoPosicaoMenosUmVezesRazao}\n'
-            'a${posicao} = ${resultado.toStringAsFixed(2)}';
+            'a${position} = ${firstTerm} + (${position} - 1) * ${reason}\n'
+            'a${position} = ${firstTerm} + ${positionMinusOneResult} * ${reason}\n'
+            'a${position} = ${firstTerm} + ${positionMinusOneResultTimesReason}\n'
+            'a${position} = ${resultPAgeneralTerm.toStringAsFixed(2)}';
       });
     }
   }
@@ -59,7 +56,7 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
               ),
               SizedBox(height: 4),
               TextFormField(
-                controller: _primeiroTermoController,
+                controller: _firstTermController,
                 decoration: const InputDecoration(labelText: 'Primeiro Termo (a1)'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -69,7 +66,7 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
                 },
               ),
               TextFormField(
-                controller: _razaoController,
+                controller: _reasonController,
                 decoration: const InputDecoration(labelText: 'Razão (r)'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -79,7 +76,7 @@ class _PACalculationScreenState extends State<PACalculationScreen> {
                 },
               ),
               TextFormField(
-                controller: _posicaoController,
+                controller: _positionController,
                 decoration: const InputDecoration(labelText: 'Posição (n)'),
                 keyboardType: TextInputType.number,
                 validator: (value) {

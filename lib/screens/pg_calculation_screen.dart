@@ -11,31 +11,30 @@ class PGCalculationScreen extends StatefulWidget {
 
 class _PGCalculationScreenState extends State<PGCalculationScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _primeiroTermoController = TextEditingController();
-  final _razaoController = TextEditingController();
-  final _posicaoController = TextEditingController();
+  final _firstTermController = TextEditingController();
+  final _reasonController = TextEditingController();
+  final _positionController = TextEditingController();
   String result = '';
 
   void _validateAndCalculate() {
     if (_formKey.currentState!.validate()) {
-      double primeiroTermo = double.parse(_primeiroTermoController.text);
-      double razao = double.parse(_razaoController.text);
-      int posicao = int.parse(_posicaoController.text);
+      double firstTerm = double.parse(_firstTermController.text);
+      double reason = double.parse(_reasonController.text);
+      int position = int.parse(_positionController.text);
 
-      // Variáveis intermediárias para a lógica
-      double resultadoPosicaoMenosUm = (posicao - 1).toDouble();
-      double resultadoPosicaoElevadoPosicaoMenosUm =
-      pow(razao, resultadoPosicaoMenosUm).toDouble();
+      double positionMinusOneResult = (position - 1).toDouble();
+      double positionElevatedPositionMinusOneResult =
+      pow(reason, positionMinusOneResult).toDouble();
 
-      double resultado = primeiroTermo * pow(razao, (posicao - 1).toDouble());
+      double resultPGgeneralTerm = firstTerm * pow(reason, (position - 1).toDouble());
 
       setState(() {
         result =
             'an = a1 * q ^ (n - 1)\n'
-            'a${posicao} = ${primeiroTermo} * (${razao}) ^ (${posicao} - 1)\n'
-            'a${posicao} = ${primeiroTermo} * (${razao}) ^ (${resultadoPosicaoMenosUm})\n'
-            'a${posicao} = ${primeiroTermo} * ${resultadoPosicaoElevadoPosicaoMenosUm}\n'
-            'a${posicao} = ${resultado.toStringAsFixed(2)}';
+            'a${position} = ${firstTerm} * (${reason}) ^ (${position} - 1)\n'
+            'a${position} = ${firstTerm} * (${reason}) ^ (${positionMinusOneResult})\n'
+            'a${position} = ${firstTerm} * ${positionElevatedPositionMinusOneResult}\n'
+            'a${position} = ${resultPGgeneralTerm.toStringAsFixed(2)}';
       });
     }
   }
@@ -59,7 +58,7 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
               ),
               SizedBox(height: 4),
               TextFormField(
-                controller: _primeiroTermoController,
+                controller: _firstTermController,
                 decoration: const InputDecoration(labelText: 'Primeiro Termo (a1)'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -69,7 +68,7 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
                 },
               ),
               TextFormField(
-                controller: _razaoController,
+                controller: _reasonController,
                 decoration: const InputDecoration(labelText: 'Razão (q)'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -79,7 +78,7 @@ class _PGCalculationScreenState extends State<PGCalculationScreen> {
                 },
               ),
               TextFormField(
-                controller: _posicaoController,
+                controller: _positionController,
                 decoration: const InputDecoration(labelText: 'Posição (n)'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
