@@ -49,7 +49,6 @@ class _PercentageCalculationScreenState extends State<PercentageCalculationScree
                 'Porcentagem: Trata-se da razão entre um número e 100, e representamos essa razão pelo símbolo %. É utilizada para representar partes de algo inteiro. Ex: 50%, (50/100) ou 0,50. Realize um exercíco prático:',
                 textAlign: TextAlign.justify,
               ),
-              SizedBox(height: 26),
               TextFormField(
                 controller: _valueController,
                 decoration: const InputDecoration(labelText: 'Valor'),

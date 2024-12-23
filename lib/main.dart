@@ -1,3 +1,5 @@
+import 'screens/contacts.dart';
+import 'screens/documents_page.dart';
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'screens/calculation_page.dart';
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         '/home': (context) => HomePage(),
+        '/documents': (context) => const DocumentsPage(),
+        '/contacts': (context) => const ContactsPage(),
         '/calculation': (context) => const CalculationPage(),
       },
     );

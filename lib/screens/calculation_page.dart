@@ -23,7 +23,12 @@ class CalculationPage extends StatelessWidget {
       drawer: const MyDrawer(),
       body: GridView.count(
         crossAxisCount: 2,
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(
+          top: 100.0,
+          right: 8.0,
+          left: 8.0,
+          bottom: 8.0,
+        ),
         crossAxisSpacing: 8.0,
         mainAxisSpacing: 8.0,
         children: const [
@@ -32,7 +37,6 @@ class CalculationPage extends StatelessWidget {
             asset: 'assets/img/i_pa.png',
             screen: PACalculationScreen(),
           ),
-
           CalculationCard(
             title: '',
             asset: 'assets/img/i_pg.png',

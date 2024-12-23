@@ -25,17 +25,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.white,
         ),
       ),
-      actions: [
-        IconButton(
-          icon: Icon(
-            Icons.account_circle_rounded,
-            size: 30,
-          ),
-          onPressed: () {
-            //print("Olá mundo");
-          },
-        ),
-      ],
     );
   }
 }

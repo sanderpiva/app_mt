@@ -15,7 +15,7 @@ class MyDrawer extends StatelessWidget {
           children: [
             const UserAccountsDrawerHeader(
               accountName: Text("Aplicativo Matemático"),
-              accountEmail: Text("players@gmail.com"),
+              accountEmail: Text(""),
               currentAccountPicture: CircleAvatar(
                backgroundImage: AssetImage('assets/img/logo.jpg'), // Replace with your image path
                backgroundColor: Colors.transparent, // Transparent background for image visibility
@@ -26,12 +26,23 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Alunos'),
+              leading: const Icon(Icons.folder),
+              title: const Text('Breve documentação'),
               //onTap: () {},
-              onTap: (){Navigator.pushNamed(context, '/calculation');}
+              onTap: (){Navigator.pushNamed(context, '/documents');}
             ),
-
+            ListTile(
+                leading: const Icon(Icons.email),
+                title: const Text('Contatos'),
+                //onTap: () {},
+                onTap: (){Navigator.pushNamed(context, '/contacts');}
+            ),
+            ListTile(
+                leading: const Icon(Icons.person),
+                title: const Text('Área dos Alunos'),
+                //onTap: () {},
+                onTap: (){Navigator.pushNamed(context, '/calculation');}
+            ),
             const Divider(
               //color: Colors.blue,
             ),
