@@ -17,8 +17,8 @@ class MyDrawer extends StatelessWidget {
               accountName: Text("Aplicativo Matemático"),
               accountEmail: Text(""),
               currentAccountPicture: CircleAvatar(
-               backgroundImage: AssetImage('assets/img/logo.jpg'), // Replace with your image path
-               backgroundColor: Colors.transparent, // Transparent background for image visibility
+               backgroundImage: AssetImage('assets/img/logo.jpg'),
+               backgroundColor: Colors.transparent,
 
               ),
               decoration: BoxDecoration(
