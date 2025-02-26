@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'App Matemático',
       theme: ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
       home: HomePage(),
       routes: {
